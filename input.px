@@ -1,0 +1,15 @@
+CANVAS 16,16
+
+COLOR green = #00FF00
+COLOR red = #FF0000
+COLOR blue = #0000FF
+
+VAR start = 2 + 1
+VAR y = 2
+
+PIXEL start,y,green
+RECT 4,4,6,3,red
+
+LOOP i = 0 TO 5 {
+PIXEL i,10,blue
+}
