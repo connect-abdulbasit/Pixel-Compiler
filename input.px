@@ -1,15 +1,52 @@
-CANVAS 16,16
+CANVAS 48,48
 
-COLOR green = #00FF00
-COLOR red = #FF0000
-COLOR blue = #0000FF
+COLOR bg     = #0D1117
+COLOR surface = #161B22
+COLOR muted  = #21262D
+COLOR accent = #58A6FF
+COLOR warm   = #F0883E
+COLOR bright = #E6EDF3
 
-VAR start = 2 + 1
-VAR y = 2
+RECT 0,0,48,48,bg
+RECT 2,2,44,44,surface
 
-PIXEL start,y,green
-RECT 4,4,6,3,red
-
-LOOP i = 0 TO 5 {
-PIXEL i,10,blue
+LOOP row = 0 TO 5 {
+    LOOP col = 0 TO 5 {
+        VAR r2 = row + row
+        VAR r6 = r2 + r2 + r2
+        VAR c2 = col + col
+        VAR c6 = c2 + c2 + c2
+        VAR px = 6 + c6
+        VAR py = 6 + r6
+        PIXEL px,py,muted
+    }
 }
+
+LOOP i = 2 TO 45 {
+    PIXEL i,2,muted
+    PIXEL i,45,muted
+    PIXEL 2,i,muted
+    PIXEL 45,i,muted
+}
+
+LOOP i = 0 TO 47 {
+    PIXEL i,0,accent
+    PIXEL i,47,accent
+    PIXEL 0,i,accent
+    PIXEL 47,i,accent
+}
+
+VAR bx = 14
+VAR by = 14
+RECT bx,by,20,20,accent
+
+VAR cx = 18
+VAR cy = 18
+RECT cx,cy,12,12,warm
+
+PIXEL 24,24,bright
+
+PIXEL 6,6,bright
+PIXEL 41,6,bright
+PIXEL 6,41,bright
+PIXEL 41,41,bright

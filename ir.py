@@ -1,5 +1,3 @@
-"""Lower Pixel Compiler AST into simple IR instructions."""
-
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -9,8 +7,6 @@ from parser import BinaryOp, Canvas, Color, Loop, Number, NumericExpr, Pixel, Pr
 
 @dataclass(frozen=True)
 class IRInstruction:
-    """A simple IR instruction with opcode and operands."""
-
     opcode: str
     operands: tuple[object, ...] = ()
 
@@ -21,7 +17,6 @@ class IRInstruction:
 
 
 def generate_ir(program: Program) -> list[IRInstruction]:
-    """Convert AST into a linear list of IR instructions."""
     instructions: list[IRInstruction] = []
     _lower_statements(program.statements, instructions)
     return instructions
@@ -73,7 +68,6 @@ def _lower_statements(statements: list[Statement], out: list[IRInstruction]) -> 
 
 
 def _encode_numeric(expr: NumericExpr) -> object:
-    """Encode numeric AST nodes as IR operands."""
     if isinstance(expr, Number):
         return expr.value
     if isinstance(expr, VarRef):

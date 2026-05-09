@@ -1,5 +1,3 @@
-"""Recursive-descent parser for the Pixel Compiler DSL."""
-
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -96,8 +94,6 @@ Statement = Canvas | Color | Pixel | Rect | Var | Loop
 
 
 class Parser:
-    """Simple recursive-descent parser."""
-
     def __init__(self, tokens: list[Token]) -> None:
         self.tokens = tokens
         self.pos = 0
@@ -260,11 +256,9 @@ class Parser:
 
 
 def parse(tokens: list[Token]) -> Program:
-    """Parse a token sequence into an AST."""
     return Parser(tokens).parse()
 
 
 def parse_source(source: str) -> Program:
-    """Convenience function: tokenize, then parse."""
     return parse(tokenize(source))
 

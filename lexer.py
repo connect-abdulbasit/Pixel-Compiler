@@ -1,11 +1,8 @@
-"""Regex-based lexer for the Pixel Compiler DSL."""
-
 from __future__ import annotations
 
 import re
 from dataclasses import dataclass
 
-# Language keywords supported by parser phases 1-2.
 KEYWORDS = {"CANVAS", "COLOR", "PIXEL", "RECT", "VAR", "LOOP", "TO"}
 
 TOKEN_SPEC = [
@@ -27,8 +24,6 @@ MASTER_PATTERN = re.compile("|".join(f"(?P<{name}>{pattern})" for name, pattern 
 
 @dataclass(frozen=True)
 class Token:
-    """A lexical token produced by the lexer."""
-
     type: str
     value: str
     line: int
@@ -39,7 +34,6 @@ class Token:
 
 
 def tokenize(source: str) -> list[Token]:
-    """Convert source code text into a list of tokens."""
     tokens: list[Token] = []
     line_num = 1
     line_start = 0

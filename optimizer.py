@@ -1,5 +1,3 @@
-"""IR optimizer passes for Pixel Compiler."""
-
 from __future__ import annotations
 
 from ir import IRInstruction
@@ -9,7 +7,6 @@ IROperand = object
 
 
 def optimize_ir(instructions: list[IRInstruction]) -> list[IRInstruction]:
-    """Run all optimization passes."""
     folded = _constant_fold(instructions)
     return _eliminate_overdraw(folded)
 

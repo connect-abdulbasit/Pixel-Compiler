@@ -1,5 +1,3 @@
-"""CLI entry point for Pixel Compiler."""
-
 from __future__ import annotations
 
 import argparse
@@ -14,7 +12,6 @@ from semantic import SemanticError, analyze
 
 
 def main() -> None:
-    """Run the Pixel Compiler CLI."""
     parser = _build_arg_parser()
     args = parser.parse_args()
 

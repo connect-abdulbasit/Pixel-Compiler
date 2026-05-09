@@ -1,5 +1,3 @@
-"""Semantic analysis for the Pixel Compiler DSL."""
-
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -28,12 +26,10 @@ class ValueRange:
 
 
 class SemanticError(Exception):
-    """Raised when semantic validation fails."""
+    pass
 
 
 class SemanticAnalyzer:
-    """Validates semantic correctness and builds symbol tables."""
-
     def __init__(self) -> None:
         self.canvas: tuple[int, int] | None = None
         self.symbols: dict[str, dict[str, object]] = {
@@ -162,11 +158,9 @@ class SemanticAnalyzer:
 
 
 def analyze(program: Program) -> dict[str, dict[str, object]]:
-    """Analyze a parsed AST and return the symbol table."""
     return SemanticAnalyzer().analyze(program)
 
 
 def analyze_source(source: str) -> dict[str, dict[str, object]]:
-    """Convenience function: parse source and run semantic checks."""
     return analyze(parse_source(source))
 

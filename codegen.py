@@ -1,5 +1,3 @@
-"""Code generation from IR to PNG using Pillow."""
-
 from __future__ import annotations
 
 from PIL import Image
@@ -8,7 +6,6 @@ from ir import IRInstruction
 
 
 def generate_image(instructions: list[IRInstruction], output_path: str = "output.png", scale: int = 1) -> str:
-    """Execute IR instructions and save output image."""
     if scale < 1:
         raise ValueError("scale must be >= 1")
 
